@@ -10,14 +10,24 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import javax.validation.Valid
 
+/**
+ * Greeting API Controller.
+ *
+ */
 @RestController
 @RequestMapping("greeting")
 class GreetingController {
 
+  /**
+   * Greeting API GETメソッド処理.
+   *
+   * @param criteria リクエスト情報
+   * @return レスポンス情報
+   */
   @GetMapping
   @ResponseStatus(HttpStatus.OK)
   fun greeting(@Valid criteria: RequestCriteria): Greeting {
-    val hour: Int = criteria.hour ?: -1
+    val hour: Int = criteria.hour
     return if (hour in 0..4) {
       Greeting("good night")
     } else if (hour in 5..15) {
@@ -29,6 +39,12 @@ class GreetingController {
     }
   }
 
+  /**
+   * Greeting API エラーハンドリング処理.
+   *
+   * @param e リクエストエラー情報
+   * @return APIエラー情報
+   */
   @ExceptionHandler(BindException::class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   fun handleBindingException(e: BindException): ApiError {
