@@ -23,7 +23,6 @@ dependencies {
   // Kotlin
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-  //implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.0")
   // Util
   implementation("com.jayway.jsonpath:json-path:2.4.0")
   // Spring Boot
