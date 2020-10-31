@@ -8,6 +8,7 @@ plugins {
   kotlin("plugin.spring") version "1.3.72"
   id("org.asciidoctor.convert") version "1.6.1"
   id("org.jetbrains.dokka") version "0.10.1"
+  id("war")
 }
 
 group = "com.example"
@@ -80,4 +81,18 @@ tasks {
     outputFormat = "html"
     outputDirectory = "$buildDir/dokka"
   }
+}
+
+//////////////////////////////////////
+// Generate Jar
+//////////////////////////////////////
+tasks.withType<Jar> {
+  enabled = true
+}
+
+//////////////////////////////////////
+// Generate War
+//////////////////////////////////////
+tasks.withType<War> {
+  enabled = true
 }
