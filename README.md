@@ -14,6 +14,7 @@ Spring Boot Kotlin の Docker Build Sample
     - [Spring REST Docs (2.0.5.RELEASE)](https://spring.io/projects/spring-restdocs)
 -   IDE
     - [Eclipse (2020‑09)](http://www.eclipse.org/home/index.php) + [Spring Tools](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
+    - [IntelliJ IDEA CE (2020.2)](https://www.jetbrains.com/ja-jp/idea/download/)
 
 
 # 利用方法
