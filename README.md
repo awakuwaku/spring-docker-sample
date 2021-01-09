@@ -20,7 +20,7 @@ Spring Boot Kotlin の Docker Build Sample
 # 利用方法
 以下コマンドにて実行する。
   ```shell
-  ./gradlew clean assemble && \
+  ./gradlew clean bootJar && \
   docker-compose build && \
   docker-compose up -d --force-recreate
   ```
