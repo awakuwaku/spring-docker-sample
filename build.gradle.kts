@@ -1,11 +1,11 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  id("org.springframework.boot") version "2.3.4.RELEASE"
+  id("org.springframework.boot") version "2.4.1"
   id("io.spring.dependency-management") version "1.0.10.RELEASE"
-  kotlin("jvm") version "1.3.72"
-  kotlin("plugin.spring") version "1.3.72"
+  kotlin("jvm") version "1.4.21"
+  kotlin("plugin.spring") version "1.4.21"
   id("org.asciidoctor.convert") version "1.6.1"
   id("org.jetbrains.dokka") version "0.10.1"
   id("war")
@@ -37,6 +37,7 @@ dependencies {
   // Spring REST Docs
   testImplementation("org.springframework.restdocs:spring-restdocs-core:2.0.5.RELEASE")
   testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc:2.0.5.RELEASE")
+  testImplementation("org.junit.vintage:junit-vintage-engine")
 }
 
 //////////////////////////////////////
