@@ -2,10 +2,10 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  id("org.springframework.boot") version "2.4.3"
+  id("org.springframework.boot") version "2.4.5"
   id("io.spring.dependency-management") version "1.0.11.RELEASE"
-  kotlin("jvm") version "1.4.31"
-  kotlin("plugin.spring") version "1.4.31"
+  kotlin("jvm") version "1.5.0"
+  kotlin("plugin.spring") version "1.5.0"
   id("org.asciidoctor.convert") version "1.6.1"
   id("org.jetbrains.dokka") version "0.10.1"
   id("war")
