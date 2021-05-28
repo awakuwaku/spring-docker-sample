@@ -2,12 +2,12 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  id("org.springframework.boot") version "2.4.5"
+  id("org.springframework.boot") version "2.5.0"
   id("io.spring.dependency-management") version "1.0.11.RELEASE"
   kotlin("jvm") version "1.5.0"
   kotlin("plugin.spring") version "1.5.0"
-  id("org.asciidoctor.convert") version "1.6.1"
-  id("org.jetbrains.dokka") version "0.10.1"
+  id("org.asciidoctor.jvm.convert") version "3.1.0"
+  id("org.jetbrains.dokka") version "1.4.32"
   id("war")
 }
 
@@ -17,7 +17,6 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
   mavenCentral()
-  jcenter()
 }
 
 dependencies {
@@ -26,6 +25,7 @@ dependencies {
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   // Util
   implementation("com.jayway.jsonpath:json-path:2.5.0")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3")
   // Spring Boot
   implementation("org.springframework.boot:spring-boot-starter-web")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -61,7 +61,7 @@ tasks.withType<KotlinCompile> {
 //////////////////////////////////////
 // Asciidoctor
 //////////////////////////////////////
-val snippetsDir by extra { file("build/generated-snippets") }
+val snippetsDir by extra { file("$buildDir/generated-snippets") }
 tasks {
   test {
     outputs.dir(snippetsDir)
@@ -69,18 +69,8 @@ tasks {
 
   asciidoctor {
     inputs.dir(snippetsDir)
-    sourceDir("src/main/asciidoc")
+    sourceDir("$buildDir/src/main/asciidoc")
     dependsOn(test)
-  }
-}
-
-//////////////////////////////////////
-// Dokka
-//////////////////////////////////////
-tasks {
-  val dokka by getting(DokkaTask::class) {
-    outputFormat = "html"
-    outputDirectory = "$buildDir/dokka"
   }
 }
 
