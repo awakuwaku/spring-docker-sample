@@ -47,7 +47,7 @@ jobs:
 
       # store tests result
       - store_test_results:
-          path: build/reports
+          path: ~/build/reports
 
       # run asciidoctor
       - run:
@@ -58,3 +58,18 @@ jobs:
       - run:
           name: dokkaJavadoc
           command: ./gradlew dokkaJavadoc
+
+      # install docker compose
+      - run:
+          name: install docker compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+
+      # docker compose build
+      - run:
+          name: install docker compose
+          command: |
+            ./gradlew clean bootJar
+            docker-compose build
