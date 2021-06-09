@@ -40,3 +40,15 @@ jobs:
 
       # run tests!
       - run: gradle test
+
+      # run asciidoctor
+      - run: gradle asciidoctor
+
+      # run dokkaHtml
+      - run: gradle dokkaHtml
+
+      # run dokkaJavadoc
+      - run: gradle dokkaJavadoc
+
+      # run docker build
+      - run: docker-compose build
