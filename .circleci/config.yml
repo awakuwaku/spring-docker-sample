@@ -40,10 +40,14 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle.kts" }}
 
-      # run tests!
+      # run tests
       - run:
           name: test
           command: ./gradlew test
+
+      # store tests result
+      - store_test_results:
+          path: build/reports
 
       # run asciidoctor
       - run:
