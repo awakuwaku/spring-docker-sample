@@ -44,9 +44,6 @@ jobs:
       # run asciidoctor
       - run: gradle asciidoctor
 
-      # run dokkaHtml
-      - run: gradle dokkaHtml
-
       # run dokkaJavadoc
       - run: gradle dokkaJavadoc
 
