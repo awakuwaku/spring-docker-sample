@@ -45,9 +45,17 @@ jobs:
           name: test
           command: ./gradlew test
 
-      # store tests result
+      # save test results
+      - run:
+          name: save test results
+          command: |
+            mkdir -p ~/junit/
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+          when: always
       - store_test_results:
-          path: build/reports/tests
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
 
       # run asciidoctor
       - run:
@@ -67,12 +75,13 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
 
+      # setup docker
       - setup_remote_docker:
           version: 20.10.6
 
       # docker compose build
       - run:
-          name: install docker compose
+          name: docker compose build
           command: |
             ./gradlew clean bootJar
             docker-compose build
