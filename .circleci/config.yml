@@ -40,10 +40,22 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle.kts" }}
 
-      # run tests!
+      # run tests
       - run:
           name: test
           command: ./gradlew test
+
+      # save test results
+      - run:
+          name: save test results
+          command: |
+            mkdir -p ~/junit/
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit
 
       # run asciidoctor
       - run:
@@ -54,3 +66,22 @@ jobs:
       - run:
           name: dokkaJavadoc
           command: ./gradlew dokkaJavadoc
+
+      # install docker compose
+      - run:
+          name: install docker compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+
+      # setup docker
+      - setup_remote_docker:
+          version: 20.10.6
+
+      # docker compose build
+      - run:
+          name: docker compose build
+          command: |
+            ./gradlew clean bootJar
+            docker-compose build
