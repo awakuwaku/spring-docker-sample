@@ -46,6 +46,3 @@ jobs:
 
       # run dokkaJavadoc
       - run: gradle dokkaJavadoc
-
-      # run docker build
-      - run: docker-compose build
