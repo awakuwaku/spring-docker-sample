@@ -31,7 +31,9 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: ./gradlew dependencies
+      - run:
+          name: dependencies
+          command: ./gradlew dependencies
 
       - save_cache:
           paths:
@@ -39,10 +41,16 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle.kts" }}
 
       # run tests!
-      - run: ./gradlew test
+      - run:
+          name: test
+          command: ./gradlew test
 
       # run asciidoctor
-      - run: ./gradlew asciidoctor
+      - run:
+          name: asciidoctor
+          command: ./gradlew asciidoctor
 
       # run dokkaJavadoc
-      - run: ./gradlew dokkaJavadoc
+      - run:
+          name: dokkaJavadoc
+          command: ./gradlew dokkaJavadoc
