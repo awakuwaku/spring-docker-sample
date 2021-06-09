@@ -1,4 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -38,7 +37,6 @@ dependencies {
   // Spring REST Docs
   testImplementation("org.springframework.restdocs:spring-restdocs-core:2.0.5.RELEASE")
   testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc:2.0.5.RELEASE")
-  testImplementation("org.junit.vintage:junit-vintage-engine")
 }
 
 //////////////////////////////////////
@@ -70,7 +68,7 @@ tasks {
 
   asciidoctor {
     inputs.dir(snippetsDir)
-    sourceDir("$buildDir/src/main/asciidoc")
+    sourceDir("src/main/asciidoc")
     dependsOn(test)
   }
 }
