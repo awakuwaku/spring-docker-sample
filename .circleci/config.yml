@@ -40,3 +40,9 @@ jobs:
 
       # run tests!
       - run: gradle test
+
+      # run asciidoctor
+      - run: gradle asciidoctor
+
+      # run dokkaJavadoc
+      - run: gradle dokkaJavadoc
