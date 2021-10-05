@@ -1,12 +1,12 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  id("org.springframework.boot") version "2.5.4"
+  id("org.springframework.boot") version "2.5.5"
   id("io.spring.dependency-management") version "1.0.11.RELEASE"
-  kotlin("jvm") version "1.5.30"
-  kotlin("plugin.spring") version "1.5.30"
+  kotlin("jvm") version "1.5.31"
+  kotlin("plugin.spring") version "1.5.31"
   id("org.asciidoctor.jvm.convert") version "3.3.2"
-  id("org.jetbrains.dokka") version "1.5.0"
+  id("org.jetbrains.dokka") version "1.5.31"
   id("war")
   id("com.github.ben-manes.versions") version "0.39.0"
 }
@@ -25,7 +25,7 @@ dependencies {
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   // Util
   implementation("com.jayway.jsonpath:json-path:2.6.0")
-  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
   // Spring Boot
   implementation("org.springframework.boot:spring-boot-starter-web")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
