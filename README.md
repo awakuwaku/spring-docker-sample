@@ -4,7 +4,7 @@ Spring Boot Kotlin の Docker Build Sample
 
 # 前提
 -   JDK
-    - [Eclipse Temurin (11.0.x)](https://adoptium.net/)
+    - [Eclipse Temurin (17.0.x)](https://adoptium.net/)
 -   Kotlin
     - [Kotlin (1.6.0)](https://kotlinlang.org/)
 -   Build Tool

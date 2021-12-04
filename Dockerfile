@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11
+FROM eclipse-temurin:17
 EXPOSE 8080
 EXPOSE 9010
 
