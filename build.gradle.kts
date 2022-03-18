@@ -25,7 +25,7 @@ dependencies {
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   // Util
   implementation("com.jayway.jsonpath:json-path:2.7.0")
-  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2")
   // Spring Boot
   implementation("org.springframework.boot:spring-boot-starter-web")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
