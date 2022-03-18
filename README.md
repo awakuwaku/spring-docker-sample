@@ -8,7 +8,7 @@ Spring Boot Kotlin の Docker Build Sample
 -   Kotlin
     - [Kotlin (1.6.10)](https://kotlinlang.org/)
 -   Build Tool
-    - [Gradle (7.4)](https://gradle.org/)
+    - [Gradle (7.4.1)](https://gradle.org/)
 -   Framework
     - [Spring Boot (2.6.4.RELEASE)](https://spring.io/projects/spring-boot)
     - [Spring REST Docs (2.0.6.RELEASE)](https://spring.io/projects/spring-restdocs)
